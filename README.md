@@ -1,2 +1,1 @@
-docker-images
-=============
+Working and tested base Ubuntu 13.10 suacy image. It is a base image containing the ususal tricks: fake fuse install, dbus install and workaround, locales installed and envirnoment variable settings. df -h is working.
