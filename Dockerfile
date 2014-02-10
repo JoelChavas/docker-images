@@ -33,7 +33,7 @@ RUN cd /tmp ; echo '#!/bin/bash\nexit 0\n' > DEBIAN/postinst && dpkg-deb -b . /f
 #######################################
 RUN dpkg-divert --local --rename --add /sbin/initctl && ln -s /bin/true /sbin/initctl
 RUN apt-get -y install dbus-x11
-echo "export NO_AT_BRIDGE=1" >> /etc/bash.bashrc
+RUN echo "export NO_AT_BRIDGE=1" >> /etc/bash.bashrc
 
 #######################################
 # cleaning
