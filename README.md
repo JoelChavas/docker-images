@@ -1,1 +1,1 @@
-Working and tested base Ubuntu 13.10 saucy image. It is a base image containing the usual workarounds: fake fuse install, dbus install and workaround, locales installed and envirnoment variable settings. df -h is working.
+ssh server: Ubuntu 13.10, saucy, user=root with password root
