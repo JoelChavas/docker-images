@@ -1,4 +1,4 @@
-FROM saucy-debootstrap
+FROM jchavas/saucy-debootstrap
 
 #######################################
 # initialization
