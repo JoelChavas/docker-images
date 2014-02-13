@@ -70,11 +70,12 @@ RUN pip install nose mock
 RUN cd /root; wget https://pypi.python.org/packages/source/P/PyNN/PyNN-0.7.5.tar.gz; tar xzf PyNN-0.7.5.tar.gz; rm PyNN-0.7.5.tar.gz
 RUN export PATH=$PATH:/opt/neuron/iv/x86_64/bin:/opt/neuron/nrn/x86_64/bin:/opt/nest/bin; cd /root/PyNN-0.7.5/test/unittests && nosetests -I test_neuron -I test_nest && nosetests test_nest.py && nosetests test_neuron.py
 RUN cd /root/music/test; mpirun -np 4 music /root/music/test/events.music
-RUN export PATH=$PATH:/opt/nest/bin; files=$(ls /root/nest-2.2.2/testsuite/unittests/*.sli); for f in $files; do nest $f; if [ $? != 0 ]; then echo "ERROR in nest unittests: function $f"; exit 1; fi; done;
+RUN export PATH=$PATH:/opt/nest/bin; cd /root; files=$(ls /root/nest-2.2.2/testsuite/unittests/*.sli); for f in $files; do nest $f; if [ $? != 0 ]; then echo "ERROR in nest unittests: function $f"; exit 1; fi; done; rm *.dat *.gdf
 
 #######################################
-# cleaning
+# copying and cleaning
 #######################################
+ADD README /root/README
 RUN unset DEBIAN_FRONTEND
 
 
